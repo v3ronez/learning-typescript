@@ -119,3 +119,31 @@ console.log(setCor(aluno))
 
 
 // Intersection Types
+
+// funcoes com type
+type MapStringCallFunction = (item: string) => string;
+
+function mapString(array: Array<string>, callBackFunc: MapStringCallFunction): Array<string> {
+  const newArray: Array<string> = []
+  for (let i = 0; i < array.length; i++) {
+    newArray.push(callBackFunc(array[i]))
+  }
+  return newArray
+}
+
+const abc: Array<string> = ['a', 'b', 'c'];
+
+const abcUpper = mapString(abc, item => item.toUpperCase())
+console.log(abcUpper);
+
+
+//structural typing
+
+//assertions
+//type assertions
+const body1 = document.querySelector("body");
+if(body1) body1.style.background = 'red'; //testando se existe o elemento
+
+
+const body = document.querySelector("body") as HTMLBodyElement; //tenho certeza que vai ter esse element
+
